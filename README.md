@@ -1,3 +1,4 @@
+<<<<<<< HEAD
   9. Production Readiness Checklist
 
   - Security
@@ -27,3 +28,7 @@
   requirements and preferred cloud provider.
 
 
+=======
+# AI_Assistant
+multirotors.store AI Assistant
+>>>>>>> 199143925eb10fbf4f66f8feec8e2a1701a52d80
