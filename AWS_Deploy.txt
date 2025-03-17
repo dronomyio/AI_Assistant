@@ -1,0 +1,41 @@
+  3. Deploy to Cloud Platforms
+
+  Option 1: Deploy to AWS Elastic Beanstalk
+
+  1. Install the AWS CLI and EB CLI:
+  pip install awscli awsebcli
+  2. Initialize your EB application:
+  eb init -p docker modalai-assistant
+  3. Create an environment and deploy:
+  eb create modalai-assistant-prod
+  4. Set environment variables:
+  eb setenv ANTHROPIC_API_KEY=xxx GITHUB_TOKEN=xxx OPENAI_API_KEY=xxx
+
+  Option 2: Deploy to Google Cloud Run
+
+  1. Install Google Cloud SDK:
+  # Follow installation instructions at https://cloud.google.com/sdk/docs/install
+  2. Build and push the Docker image:
+  gcloud builds submit --tag gcr.io/YOUR_PROJECT_ID/modalai-assistant
+  3. Deploy to Cloud Run:
+  gcloud run deploy modalai-assistant \
+    --image gcr.io/YOUR_PROJECT_ID/modalai-assistant \
+    --platform managed \
+    --region us-central1 \
+    --allow-unauthenticated \
+    --set-env-vars="ANTHROPIC_API_KEY=xxx,GITHUB_TOKEN=xxx,OPENAI_API_KEY=xxx"
+
+  Option 3: Deploy to Heroku
+
+  1. Install Heroku CLI:
+  # Follow installation instructions at https://devcenter.heroku.com/articles/heroku-cli
+  2. Create a Heroku app:
+  heroku create modalai-assistant
+  3. Set up the Heroku container registry:
+  heroku container:login
+  heroku container:push web -a modalai-assistant
+  heroku container:release web -a modalai-assistant
+  4. Set environment variables:
+  heroku config:set ANTHROPIC_API_KEY=xxx GITHUB_TOKEN=xxx OPENAI_API_KEY=xxx -a modalai-assistant
+
+
