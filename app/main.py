@@ -58,7 +58,7 @@ def login():
 def process_query():
   # Handle query processing
   # ...
-Implement Subscription Management with Stripe
+#Implement Subscription Management with Stripe
 
 # In app/main.py
 import stripe
@@ -120,7 +120,7 @@ def webhook():
 
   return jsonify({"status": "success"})
 
-Set Up Application Monitoring
+#Set Up Application Monitoring
 
 # In app/main.py
 import logging
